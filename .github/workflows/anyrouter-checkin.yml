@@ -1,7 +1,7 @@
 name: anyrouter-checkin 自动签到
 on:
   schedule:
-    - cron: '0 */8 * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 jobs:
