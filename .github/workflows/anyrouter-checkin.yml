@@ -10,7 +10,7 @@ jobs:
       id-token: write
       contents: read
     runs-on: windows-2025
-    environment: production
+    environment: production1
     env:
       PYTHONIOENCODING: utf-8
     steps:
