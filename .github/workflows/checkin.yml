@@ -88,49 +88,6 @@ jobs:
         restore-keys: |
           balance-hash-
 
-    - name: 🛑 强制删除指定缓存 (调试版)
-      shell: pwsh
-      run: |
-        # 1. 定义文件名 (请确保这里没有多余空格)
-        $fileName = "github_aaf6a498_storage_state.json"
-        
-        # 2. 构造绝对路径 (使用 Join-Path 防止斜杠问题)
-        $targetPath = Join-Path -Path "${{ github.workspace }}" -ChildPath "storage-states"
-        $targetFile = Join-Path -Path $targetPath -ChildPath $fileName
-
-        Write-Host "--------------------------------------------------"
-        Write-Host "🎯 目标文件路径: $targetFile"
-
-        # 3. 检查文件是否存在
-        if (-not (Test-Path $targetFile)) {
-            Write-Host "⚠️ 警告: 文件未找到!" -ForegroundColor Yellow
-            Write-Host "   当前 storage-states 目录下的文件有:"
-            Get-ChildItem $targetPath | Select-Object Name
-            
-            # 如果你想确认是不是文件名写错了，这里会列出所有文件
-            # 此时你可以手动停止，或者让它继续运行
-        } else {
-            Write-Host "✅ 发现文件，准备删除..." -ForegroundColor Green
-            
-            # 4. 执行删除 (关键: 使用 -Force 和 -ErrorAction Stop)
-            try {
-                Remove-Item -Path $targetFile -Force -ErrorAction Stop
-                Write-Host "🗑️ 删除命令已执行"
-            } catch {
-                Write-Host "❌ 删除失败! 错误信息: $_" -ForegroundColor Red
-                exit 1
-            }
-
-            # 5. 双重检查 (确保真的没了)
-            if (Test-Path $targetFile) {
-                Write-Host "❌ 见鬼了，文件删了怎么还在？可能是权限问题或被占用。" -ForegroundColor Red
-                exit 1
-            } else {
-                Write-Host "🎉 确认: 文件已彻底从磁盘消失！" -ForegroundColor Green
-            }
-        }
-        Write-Host "--------------------------------------------------"
-      
     - name: 执行签到
       env:
         ACCOUNTS: ${{ secrets.ACCOUNTS }}
