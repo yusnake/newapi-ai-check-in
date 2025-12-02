@@ -87,18 +87,6 @@ jobs:
         key: balance-hash-${{ hashFiles('balance_hash.txt') }}
         restore-keys: |
           balance-hash-
-    - name: 删除指定的一个缓存文件
-      run: |
-        # 🔴 请在下面修改你要删除的具体文件名
-        $targetFile = "storage-states/github_aaf6a498_storage_state.json"
-        if (Test-Path $targetFile) {
-            echo "找到目标文件: $targetFile"
-            Remove-Item -Path $targetFile -Force
-            echo "✅ 文件已删除，该账号将强制重新登录"
-        } else {
-            echo "⚠️ 文件不存在，跳过"
-        }
-        
     - name: 执行签到
       env:
         ACCOUNTS: ${{ secrets.ACCOUNTS }}
