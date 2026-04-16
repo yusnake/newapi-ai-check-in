@@ -1,0 +1,10 @@
+ANTHROPIC_API_KEY=sk-5ncPc3V22maQxI3fn9lVmQ
+ANTHROPIC_BASE_URL=https://twill-litellm-proxy-175164121374.us-west1.run.app/anthropic
+TWILL_API_KEY=twill_86sMoFyuWjExaHGH7hngRndTITqjReXk
+TWILL_BASE_URL=https://twill.ai
+TWILL_ENTRYPOINT_LOG_DIR=/root/entrypoint-logs
+TWILL_SANDBOX_URL=http://localhost
+TWILL_SCREENSHOTS_DIR=/root/.screenshots
+TWILL_SCREENSHOT_UPLOAD_URL=https://twill.ai/api/jobs/f5b38761-9312-4bde-a288-62323713f27d/screenshots
+TWILL_TASK_ID=18b5f67e-8ce1-4629-8b0c-59aa17dc89b9
+TWILL_TASK_URL=https://twill.ai/i7o/tasks/create-environment-variable-snapshot-script-and-template-Evh6Ca17
