@@ -1,0 +1,23 @@
+===== test_api.py output =====
+Making GET request to https://httpbin.org/get ...
+
+Status code: 200
+
+Response headers:
+  Date: Thu, 16 Apr 2026 11:42:02 GMT
+  Content-Type: application/json
+  Content-Length: 307
+  Connection: keep-alive
+  Server: gunicorn/19.9.0
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Credentials: true
+
+Response body (JSON):
+{'args': {}, 'headers': {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'Host': 'httpbin.org', 'User-Agent': 'python-requests/2.33.1', 'X-Amzn-Trace-Id': 'Root=1-69e0cb0a-76fa0b3d1930eaeb61ae2bd0'}, 'origin': '4.151.191.241', 'url': 'https://httpbin.org/get'}
+
+===== check_ports.py output =====
+Checking listening ports on localhost ...
+
+State Recv-Q Send-Q Local Address:Port Peer Address:Port Process
+
+No listening TCP ports found.
